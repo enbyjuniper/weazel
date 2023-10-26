@@ -70,7 +70,7 @@ function App() {
           <Image className='footer-image' src={pub} />
         </footer>
       </div>
-      <div>
+      <div className='downloadBar'>
         <input type="text" value={downloadName} onChange={(e)=>setDownloadName(e.target?.value)} />
         <button onClick={downloadPNG}>Download</button>
       </div>

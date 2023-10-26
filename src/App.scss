@@ -9,11 +9,7 @@ body {
   outline: 0px solid transparent;
 }
 .App {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
   margin-bottom: 32px;
-  align-items: center;
   button {
     background-color: #fff4cf;
     color: #231F20;
@@ -54,10 +50,14 @@ body {
   }
 
 }
+.downloadBar {
+  margin: 16px auto;
+  width: fit-content;
+}
 .page {
   background-color: white;
   width: 900px;
-  aspect-ratio: 1/1.302;
+  height: 1165px;
   overflow: hidden;
   margin: 0 auto;
   padding: 15px;
