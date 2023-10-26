@@ -1,24 +1,9 @@
-import React, { ChangeEvent, MouseEvent, useState } from 'react';
+import React from 'react';
 import './App.scss';
 import logo from './assets/weazel_header_logo.png'
 import pub from './assets/votre_pub_ici.png'
-
+import { Image } from './components';
 function App() {
-  const [imgUrl, setImgUrl] = useState('https://picsum.photos/1080/500');
-  const [showUrl, setShowUrl] = useState(false);
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setImgUrl(e.target?.value);
-  }
-
-  const clickOverlay = (e: MouseEvent<HTMLDivElement>) => {
-    if(e.target !== e.currentTarget) return;
-    setShowUrl(false);
-  }
-  const clickImage = (e: MouseEvent<HTMLDivElement>) => {
-    if(e.target !== e.currentTarget) return;
-    setShowUrl(true);
-  }
-
   return (
     <div className="App" spellCheck={false}>
       <header>
@@ -29,14 +14,7 @@ function App() {
         <img className='logo' src={logo} alt='logo' />
       </header>
       <article>
-        <div className="image">
-          <img src={imgUrl} alt="" onClick={clickImage} />
-          {showUrl &&
-            <div className="overlay" onClick={clickOverlay}>
-              <input value={imgUrl} onChange={onChange} type="text" />
-            </div>
-          }
-        </div>
+        <Image resizable src="https://picsum.photos/1080/500" />
         <h1 contentEditable>Ceci est un header</h1>
         <h2 contentEditable>par Michel Michaud</h2>
         <div className="text">
@@ -50,8 +28,7 @@ function App() {
         </div>
       </article>
       <footer>
-        <img src={pub} alt="" />
-
+        <Image src={pub} />
       </footer>
     </div>
   );
