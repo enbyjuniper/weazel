@@ -8,17 +8,12 @@ body {
 [contenteditable] {
   outline: 0px solid transparent;
 }
-
 .App {
-  background-color: white;
-  width: 900px;
-  aspect-ratio: 1/1.302;
-  overflow: hidden;
-  margin: 0 auto;
-  padding: 15px;
   display: flex;
   flex-direction: column;
-
+  gap: 16px;
+  margin-bottom: 32px;
+  align-items: center;
   button {
     background-color: #fff4cf;
     color: #231F20;
@@ -57,6 +52,18 @@ body {
     margin: auto;
     box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.5);
   }
+
+}
+.page {
+  background-color: white;
+  width: 900px;
+  aspect-ratio: 1/1.302;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+
   header {
     .top {
       display: flex;
