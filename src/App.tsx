@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import './App.scss';
 import logo from './assets/weazel_header_logo.png'
 import pub from './assets/votre_pub_ici.png'
 import { Image } from './components';
+import { useOnClickOutside } from './hooks';
+
 function App() {
+  const [titleSize, setTitleSize] = useState(84);
+  const [showSlider, setShowSlider] = useState(false);
+  const onClickOutsideRef = useOnClickOutside<HTMLDivElement>(()=>setShowSlider(false));
+
+  const onChangeSlider = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target?.value || e.target?.innerText;
+    setTitleSize(Number(value))
+  }
+
   return (
     <div className="App" spellCheck={false}>
       <header>
@@ -15,7 +26,15 @@ function App() {
       </header>
       <article>
         <Image resizable src="https://picsum.photos/1080/500" />
-        <h1 contentEditable>Ceci est un header</h1>
+        <div ref={onClickOutsideRef} className='title' onFocus={()=>setShowSlider(true)}>
+          {showSlider && 
+            <div className='tooltip'>
+              <input onChange={onChangeSlider} value={titleSize} type="range" min="50" max="100" />
+              <div><span contentEditable onInput={onChangeSlider}>{titleSize}</span><span>px</span></div>
+            </div>
+          }
+          <h1 style={{fontSize: titleSize}} contentEditable>Ceci est un header</h1>
+        </div>
         <h2 contentEditable>par Michel Michaud</h2>
         <div className="text">
           <span contentEditable className='date'>Los Santos, 1er janvier 2023</span>
@@ -28,7 +47,7 @@ function App() {
         </div>
       </article>
       <footer>
-        <Image src={pub} />
+        <Image className='footer-image' src={pub} />
       </footer>
     </div>
   );

@@ -12,13 +12,51 @@ body {
 .App {
   background-color: white;
   width: 900px;
-  aspect-ratio: 1/1.294;
+  aspect-ratio: 1/1.302;
   overflow: hidden;
   margin: 0 auto;
   padding: 15px;
   display: flex;
   flex-direction: column;
 
+  button {
+    background-color: #fff4cf;
+    color: #231F20;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: none;
+    &:hover {
+      background-color: #dbdbdb;
+    }
+    &:active {
+      background-color: #b3b3b3;
+      box-shadow: inset 2px 2px 2px rgba($color: black, $alpha: 0.5);
+      transform: translate(1px, 1px);
+    }
+  }
+  input[type=text] {
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: none;
+  }
+  .tooltip {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: fit-content;
+    margin: auto;
+    box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.5);
+  }
   header {
     .top {
       display: flex;
@@ -41,9 +79,11 @@ body {
     margin-bottom: auto;
     display: flex;
     flex-direction: column;
-
+    .title {
+      position: relative;
+    }
     h1 {
-      font-size: 84px;
+      font-size: 1em;
       padding: 0;
       margin: 0;
       color: #BE1E2D;
@@ -59,6 +99,8 @@ body {
 
     .text {
       columns: 3;
+      column-gap: 20px;
+      column-fill: auto;
       text-align: justify;
       font-size: 16px;
       line-height: 22px;
@@ -73,6 +115,11 @@ body {
   }
   footer {
     align-self: flex-end;
+    width: 100%;
+    .footer-image .-floating {
+      top:unset;
+      bottom: 5px;
+    }
     img {
       width: 100%;
     }
