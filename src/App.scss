@@ -33,26 +33,12 @@ body {
     border-radius: 8px;
     border: none;
   }
-  .tooltip {
-    display: flex;
-    align-items: center;
-    column-gap: 8px;
-    background-color: #fff;
-    padding: 8px;
-    border-radius: 8px;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    width: fit-content;
-    margin: auto;
-    box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.5);
-  }
-
 }
 .downloadBar {
+  display: flex;
   margin: 16px auto;
   width: fit-content;
+  gap: 8px;
 }
 .page {
   background-color: white;
@@ -86,17 +72,6 @@ body {
     margin-bottom: auto;
     display: flex;
     flex-direction: column;
-    .title {
-      position: relative;
-    }
-    h1 {
-      font-size: 1em;
-      padding: 0;
-      margin: 0;
-      color: #BE1E2D;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
     h2 {
       padding: 0;
       margin: -10px 0 10px 0;

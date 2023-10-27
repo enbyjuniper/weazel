@@ -1,37 +1,28 @@
-import React, { ChangeEvent, useCallback, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import './App.scss';
 import logo from './assets/weazel_header_logo.png'
 import pub from './assets/votre_pub_ici.png'
-import { Image } from './components';
-import { useOnClickOutside } from './hooks';
+import { Image, Title } from './components';
 import { toPng } from 'html-to-image';
 
 function App() {
   const [downloadName, setDownloadName] = useState('article_weazel');
 
-  const [titleSize, setTitleSize] = useState(84);
-  const [showSlider, setShowSlider] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const onClickOutsideRef = useOnClickOutside<HTMLDivElement>(()=>setShowSlider(false));
-
-  const onChangeSlider = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target?.value || e.target?.innerText;
-    setTitleSize(Number(value))
-  }
 
   const downloadPNG = useCallback(() => {
     if (ref.current === null) return;
 
     toPng(ref.current, { cacheBust: true, })
       .then((dataUrl) => {
-        const link = document.createElement('a')
-        link.download = `${downloadName}.png`
-        link.href = dataUrl
-        link.click()
+        const link = document.createElement('a');
+        link.download = `${downloadName}.png`;
+        link.href = dataUrl;
+        link.click();
       })
       .catch((err) => {
-        console.log(err)
-      })
+        console.log(err);
+      });
   }, [ref, downloadName]);
 
   return (
@@ -46,15 +37,7 @@ function App() {
         </header>
         <article>
           <Image description resizable src="https://picsum.photos/1080/500" />
-          <div ref={onClickOutsideRef} className='title' onFocus={()=>setShowSlider(true)}>
-            {showSlider && 
-              <div className='tooltip'>
-                <input onChange={onChangeSlider} value={titleSize} type="range" min="50" max="100" />
-                <div><span contentEditable onInput={onChangeSlider}>{titleSize}</span><span>px</span></div>
-              </div>
-            }
-            <h1 style={{fontSize: titleSize}} contentEditable>Ceci est un header</h1>
-          </div>
+          <Title />
           <h2 contentEditable>par Michel Michaud</h2>
           <div className="text">
             <span contentEditable className='date'>Los Santos, 1er janvier 2023</span>

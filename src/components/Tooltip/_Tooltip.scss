@@ -1,0 +1,15 @@
+.c-tooltip {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: fit-content;
+  margin: auto;
+  box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.5);
+}
