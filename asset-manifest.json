@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/weazel/static/css/main.1a5e05e0.css",
-    "main.js": "/weazel/static/js/main.262a0d91.js",
+    "main.css": "/weazel/static/css/main.77855f85.css",
+    "main.js": "/weazel/static/js/main.0bd2268a.js",
     "static/js/787.20f19797.chunk.js": "/weazel/static/js/787.20f19797.chunk.js",
     "static/media/votre_pub_ici.png": "/weazel/static/media/votre_pub_ici.216b93b69414bdad8112.png",
     "static/media/weazel_header_logo.png": "/weazel/static/media/weazel_header_logo.c9a09fad3046824bd6c4.png",
     "index.html": "/weazel/index.html",
-    "main.1a5e05e0.css.map": "/weazel/static/css/main.1a5e05e0.css.map",
-    "main.262a0d91.js.map": "/weazel/static/js/main.262a0d91.js.map",
+    "main.77855f85.css.map": "/weazel/static/css/main.77855f85.css.map",
+    "main.0bd2268a.js.map": "/weazel/static/js/main.0bd2268a.js.map",
     "787.20f19797.chunk.js.map": "/weazel/static/js/787.20f19797.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a5e05e0.css",
-    "static/js/main.262a0d91.js"
+    "static/css/main.77855f85.css",
+    "static/js/main.0bd2268a.js"
   ]
 }
