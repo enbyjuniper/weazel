@@ -27,7 +27,7 @@ body {
       transform: translate(1px, 1px);
     }
   }
-  input[type=text] {
+  input[type=text], select {
     font-size: 16px;
     padding: 5px 10px;
     border-radius: 8px;
@@ -50,21 +50,6 @@ body {
   display: flex;
   flex-direction: column;
 
-  header {
-    .top {
-      display: flex;
-      justify-content: space-between;
-      font-weight: 700;
-      color:#bebebe;
-    }
-    .logo {
-      display: block;
-      width: 100%;
-      border-top: 3px solid #231F20;
-      border-bottom: 10px solid #231F20;
-      padding: 10px 0;
-    }
-  }
   article {
     padding: 10px 0;
     flex-shrink: 1;
@@ -87,6 +72,11 @@ body {
       font-size: 16px;
       line-height: 22px;
       overflow: hidden;
+      img {
+        cursor:move;
+        display: inline-block;
+        column-span: 2;
+      }
       .date {
         font-style: italic;
         &::after {
@@ -98,12 +88,5 @@ body {
   footer {
     align-self: flex-end;
     width: 100%;
-    .footer-image .-floating {
-      top:unset;
-      bottom: 5px;
-    }
-    img {
-      width: 100%;
-    }
   }
 }

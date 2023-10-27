@@ -2,17 +2,21 @@ import classNames from 'classnames';
 import './_Image.scss';
 import { ComponentProps, FC, useState, MouseEvent, ChangeEvent } from "react";
 import { useOnClickOutside } from '../../hooks';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 type Props = ComponentProps<'img'> & {
   resizable?: boolean;
   className?: string;
   description?: boolean;
+  isBottomAligned?: boolean;
+  isHidden?: boolean;
 };
 
-export const Image: FC<Props> = ({src, resizable, description, className, ...props}) => {
+export const Image: FC<Props> = ({src, resizable, description, isBottomAligned, isHidden, className, ...props}) => {
   const [imgUrl, setImgUrl] = useState(src);
   const [imgDescription, setImgDescription] = useState('');
-  const [showImage, setShowImage] = useState(true);
+  const [showImage, setShowImage] = useState(!isHidden);
   const [showUrl, setShowUrl] = useState(false);
   const onClickOutsideRef = useOnClickOutside<HTMLDivElement>(()=>setShowUrl(false));
 
@@ -33,8 +37,8 @@ export const Image: FC<Props> = ({src, resizable, description, className, ...pro
   }
 
   return (
-    <div className={classNames('c-image', className)} ref={onClickOutsideRef}>
-      {!showImage && <button className={'-floating'} onClick={()=>setShowImage(true)}>Montrer image</button>}
+    <div className={classNames('c-image', className, {'-isBottomAligned': isBottomAligned})} ref={onClickOutsideRef}>
+      {!showImage && <button className={'-floating'} onClick={()=>setShowImage(true)}><FontAwesomeIcon icon={faEye} /></button>}
       {showImage && <div className={classNames('c-image__resizer', {'-isResizable': resizable})}>
         <img src={imgUrl} alt="" onClick={clickImage} {...props} />
         {imgDescription && <div className='c-image__description'>{imgDescription}</div>}
@@ -42,7 +46,7 @@ export const Image: FC<Props> = ({src, resizable, description, className, ...pro
           <div className="overlay" onClick={clickOverlay}>
             <input placeholder="URL de l'image" value={imgUrl} onChange={onChangeURL} type="text" />
             {description && <input placeholder="Description" value={imgDescription} onChange={onChangeDescription} type="text" />}
-            <button onClick={()=>setShowImage(false)}>Cacher image</button>
+            <button onClick={()=>setShowImage(false)}><FontAwesomeIcon icon={faEyeSlash} /></button>
           </div>
         }
       </div> }

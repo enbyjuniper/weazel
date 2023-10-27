@@ -23,7 +23,6 @@
     right: 5px;
     position: absolute;
     z-index: 10;
-
   }
   .-floating {
     opacity: 0.5;
@@ -32,6 +31,19 @@
     }
     &:hover{
       opacity: 1;
+    }
+  }
+  &.-isBottomAligned{ 
+    .c-image__resizer {
+      transform: rotate(180deg);
+      img, .overlay {
+      transform: rotate(180deg);
+
+      }
+    }
+    button {
+      top:unset;
+      bottom: 5px;
     }
   }
 

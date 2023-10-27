@@ -27,7 +27,7 @@ export const Title: FC<Props> = ({ className, ...props }) => {
           <div><span contentEditable onInput={onChangeSlider}>{titleSize}</span><span>px</span></div>
         </Tooltip>
       }
-      <h1 style={{fontSize: titleSize}} contentEditable>Ceci est un header</h1>
+      <h1 style={{fontSize: titleSize}} contentEditable>Ceci est un titre</h1>
     </div>
   );
 };

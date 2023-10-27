@@ -1,9 +1,9 @@
 import React, { useCallback, useRef, useState } from 'react';
 import './App.scss';
-import logo from './assets/weazel_header_logo.png'
 import pub from './assets/votre_pub_ici.png'
 import { Image, Title } from './components';
 import { toPng } from 'html-to-image';
+import { Header } from './components/Header';
 
 function App() {
   const [downloadName, setDownloadName] = useState('article_weazel');
@@ -28,13 +28,7 @@ function App() {
   return (
     <div className="App">
       <div className='page' ref={ref} spellCheck={false}>
-        <header>
-          <div className="top">
-            <span contentEditable>01.01.2023</span>
-            <span contentEditable>#123456</span>
-          </div>
-          <img className='logo' src={logo} alt='logo' />
-        </header>
+        <Header />
         <article>
           <Image description resizable src="https://picsum.photos/1080/500" />
           <Title />
@@ -48,9 +42,10 @@ function App() {
               Etiam ultrices, eros id elementum gravida, odio ante fermentum felis, in iaculis elit urna at urna. Nulla fringilla nisi vitae sapien lacinia, porttitor tempus mi venenatis. Integer laoreet erat vulputate tempor volutpat. Aenean eu lorem id felis venenatis sodales. Sed rutrum fermentum felis vel blandit. Pellentesque imperdiet arcu non nulla faucibus, vel porta tellus aliquam. Aliquam dictum lobortis velit, et pharetra metus interdum quis. Aliquam pulvinar diam ut magna pretium mollis ac non tellus. Nullam interdum mattis ipsum, ornare dictum diam viverra a. Praesent commodo condimentum rhoncus. Proin imperdiet ultrices lorem, vitae rhoncus neque commodo vel. Praesent cursus sagittis massa a convallis. Sed sit amet urna et quam congue congue. Fusce porta, justo vel ultricies faucibus, nisl tortor interdum elit, vel tristique sem justo non risus. Curabitur scelerisque felis neque, a venenatis lectus venenatis id.
             </span>
           </div>
+          <Image isHidden isBottomAligned description resizable src="https://picsum.photos/1080/500" />
         </article>
         <footer>
-          <Image className='footer-image' src={pub} />
+          <Image isBottomAligned className='footer-image' src={pub} />
         </footer>
       </div>
       <div className='downloadBar'>
