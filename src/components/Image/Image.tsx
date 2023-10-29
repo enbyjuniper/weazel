@@ -3,7 +3,7 @@ import './_Image.scss';
 import { ComponentProps, FC, useState, MouseEvent, ChangeEvent } from "react";
 import { useOnClickOutside } from '../../hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash, faImage } from '@fortawesome/free-solid-svg-icons';
 
 type Props = ComponentProps<'img'> & {
   resizable?: boolean;
@@ -38,7 +38,13 @@ export const Image: FC<Props> = ({src, resizable, description, isBottomAligned, 
 
   return (
     <div className={classNames('c-image', className, {'-isBottomAligned': isBottomAligned})} ref={onClickOutsideRef}>
-      {!showImage && <button className={'-floating'} onClick={()=>setShowImage(true)}><FontAwesomeIcon icon={faEye} /></button>}
+      {!showImage ? 
+        <button className={'c-image__buttonShow'} onClick={()=>setShowImage(true)}>
+          <FontAwesomeIcon icon={faEye} /><FontAwesomeIcon icon={faImage} />
+        </button>
+        :
+        <button className={'c-image__buttonHide'} onClick={()=>setShowImage(false)}><FontAwesomeIcon icon={faEyeSlash} /><FontAwesomeIcon icon={faImage} /></button>
+      }
       {showImage && <div className={classNames('c-image__resizer', {'-isResizable': resizable})}>
         <img src={imgUrl} alt="" onClick={clickImage} {...props} />
         {imgDescription && <div className='c-image__description'>{imgDescription}</div>}
@@ -46,7 +52,6 @@ export const Image: FC<Props> = ({src, resizable, description, isBottomAligned, 
           <div className="overlay" onClick={clickOverlay}>
             <input placeholder="URL de l'image" value={imgUrl} onChange={onChangeURL} type="text" />
             {description && <input placeholder="Description" value={imgDescription} onChange={onChangeDescription} type="text" />}
-            <button onClick={()=>setShowImage(false)}><FontAwesomeIcon icon={faEyeSlash} /></button>
           </div>
         }
       </div> }

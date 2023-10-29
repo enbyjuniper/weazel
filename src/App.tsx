@@ -30,9 +30,8 @@ function App() {
       <div className='page' ref={ref} spellCheck={false}>
         <Header />
         <article>
-          <Image description resizable src="https://picsum.photos/1080/500" />
+          <Image description resizable src="https://picsum.photos/1080/300" />
           <Title />
-          <h2 contentEditable>par Michel Michaud</h2>
           <div className="text">
             <span contentEditable className='date'>Los Santos, 1er janvier 2023</span>
             <span contentEditable>
@@ -42,7 +41,7 @@ function App() {
               Etiam ultrices, eros id elementum gravida, odio ante fermentum felis, in iaculis elit urna at urna. Nulla fringilla nisi vitae sapien lacinia, porttitor tempus mi venenatis. Integer laoreet erat vulputate tempor volutpat. Aenean eu lorem id felis venenatis sodales. Sed rutrum fermentum felis vel blandit. Pellentesque imperdiet arcu non nulla faucibus, vel porta tellus aliquam. Aliquam dictum lobortis velit, et pharetra metus interdum quis. Aliquam pulvinar diam ut magna pretium mollis ac non tellus. Nullam interdum mattis ipsum, ornare dictum diam viverra a. Praesent commodo condimentum rhoncus. Proin imperdiet ultrices lorem, vitae rhoncus neque commodo vel. Praesent cursus sagittis massa a convallis. Sed sit amet urna et quam congue congue. Fusce porta, justo vel ultricies faucibus, nisl tortor interdum elit, vel tristique sem justo non risus. Curabitur scelerisque felis neque, a venenatis lectus venenatis id.
             </span>
           </div>
-          <Image isHidden isBottomAligned description resizable src="https://picsum.photos/1080/500" />
+          <Image isHidden isBottomAligned description resizable src="https://picsum.photos/1080/300" />
         </article>
         <footer>
           <Image isBottomAligned className='footer-image' src={pub} />
