@@ -3,6 +3,8 @@ import './_Header.scss';
 import { ComponentProps,ChangeEvent, FC, useState } from 'react';
 import { useOnClickOutside } from '../../hooks';
 import { Tooltip } from '../Tooltip';
+import { autoUpdate, useFloating } from '@floating-ui/react';
+import { mergeRefs } from '../../utils';
  
 type Props = ComponentProps<'div'> & {};
   
@@ -13,15 +15,18 @@ export const Header: FC<Props> = ({ className, ...props }) => {
   const baseClassName = 'c-header';
   const getClassName = () => classNames(baseClassName, className);
   const onClickOutsideRef = useOnClickOutside<HTMLDivElement>(()=>setShowDropdown(false));
+  const {refs, floatingStyles} = useFloating({
+    whileElementsMounted: autoUpdate,
+  });
 
   return (
-    <header ref={onClickOutsideRef} onClick={()=>setShowDropdown(true)} className={getClassName()}>
+    <header ref={mergeRefs([onClickOutsideRef, refs.setReference])} onClick={()=>setShowDropdown(true)} className={getClassName()}>
       <div className="c-header__top">
         <span contentEditable>01.01.2023</span>
         <span contentEditable>#123456</span>
       </div>
       <img className={classNames('c-header__logo', `-${headerImage}`)} src={require(`../../assets/header_${headerImage}.png`)} alt='logo' />
-      {showSlider && <Tooltip>
+      {showSlider && <Tooltip style={floatingStyles} ref={refs.setFloating}>
         <select value={headerImage} onChange={(e: ChangeEvent<HTMLSelectElement>) => setHeaderImage(e.target?.value)} >
           <option value={'main'}>Principal</option>
           <option value={'art'}>Art & Culture</option>

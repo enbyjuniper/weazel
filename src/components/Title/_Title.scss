@@ -1,6 +1,9 @@
 .c-title {
   position: relative;
-  padding: 10px 0;
+  padding-top: 10px;
+  &__text {
+    padding-bottom: 10px;
+  }
   h1 {
     font-size: 1em;
     padding: 0;
@@ -21,6 +24,7 @@
     display: none;
     align-items: center;
     gap: 10px;
+    padding-bottom: 5px;
     &::after, &::before {
       content: '';
       height: 1px;

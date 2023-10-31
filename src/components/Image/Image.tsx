@@ -10,10 +10,11 @@ type Props = ComponentProps<'img'> & {
   className?: string;
   description?: boolean;
   isBottomAligned?: boolean;
+  isLeftAligned?: boolean;
   isHidden?: boolean;
 };
 
-export const Image: FC<Props> = ({src, resizable, description, isBottomAligned, isHidden, className, ...props}) => {
+export const Image: FC<Props> = ({src, resizable, description, isBottomAligned, isLeftAligned, isHidden, className, ...props}) => {
   const [imgUrl, setImgUrl] = useState(src);
   const [imgDescription, setImgDescription] = useState('');
   const [showImage, setShowImage] = useState(!isHidden);
@@ -37,13 +38,12 @@ export const Image: FC<Props> = ({src, resizable, description, isBottomAligned, 
   }
 
   return (
-    <div className={classNames('c-image', className, {'-isBottomAligned': isBottomAligned})} ref={onClickOutsideRef}>
+    <div className={classNames('c-image', className, {'-isBottomAligned': isBottomAligned, '-isLeftAligned': isLeftAligned})} ref={onClickOutsideRef}>
       {!showImage ? 
-        <button className={'c-image__buttonShow'} onClick={()=>setShowImage(true)}>
+        <button className={classNames('c-image__buttonShow', '-hidden')} onClick={()=>setShowImage(true)}>
           <FontAwesomeIcon icon={faEye} /><FontAwesomeIcon icon={faImage} />
-        </button>
-        :
-        <button className={'c-image__buttonHide'} onClick={()=>setShowImage(false)}><FontAwesomeIcon icon={faEyeSlash} /><FontAwesomeIcon icon={faImage} /></button>
+        </button> :
+        <button className={classNames('c-image__buttonHide', '-hidden')} onClick={()=>setShowImage(false)}><FontAwesomeIcon icon={faEyeSlash} /><FontAwesomeIcon icon={faImage} /></button>
       }
       {showImage && <div className={classNames('c-image__resizer', {'-isResizable': resizable})}>
         <img src={imgUrl} alt="" onClick={clickImage} {...props} />

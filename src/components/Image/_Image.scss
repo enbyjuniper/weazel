@@ -4,6 +4,8 @@
   position: relative;
   width: 100%;
   &__resizer {
+    margin-top: 10px;
+
     overflow: hidden;
     width: 100%;
     position: relative;
@@ -55,6 +57,12 @@
     button {
       top:unset;
       bottom: 5px;
+    }
+  }
+  &.-isLeftAligned{ 
+    button {
+      right:unset;
+      left: 5px;
     }
   }
 
