@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/weazel/static/css/main.97574ad0.css",
-    "main.js": "/weazel/static/js/main.14fdfc95.js",
+    "main.css": "/weazel/static/css/main.87dcb9f9.css",
+    "main.js": "/weazel/static/js/main.2b7fc073.js",
     "static/js/787.20f19797.chunk.js": "/weazel/static/js/787.20f19797.chunk.js",
     "static/media/votre_pub_ici.png": "/weazel/static/media/votre_pub_ici.216b93b69414bdad8112.png",
     "static/media/header_art.png": "/weazel/static/media/header_art.e8b72e311321cde67628.png",
@@ -15,12 +15,12 @@
     "static/media/header_tech.png": "/weazel/static/media/header_tech.d6a2db992e9757ce181e.png",
     "static/media/header_just.png": "/weazel/static/media/header_just.d8092d22d7e29e1e7a42.png",
     "index.html": "/weazel/index.html",
-    "main.97574ad0.css.map": "/weazel/static/css/main.97574ad0.css.map",
-    "main.14fdfc95.js.map": "/weazel/static/js/main.14fdfc95.js.map",
+    "main.87dcb9f9.css.map": "/weazel/static/css/main.87dcb9f9.css.map",
+    "main.2b7fc073.js.map": "/weazel/static/js/main.2b7fc073.js.map",
     "787.20f19797.chunk.js.map": "/weazel/static/js/787.20f19797.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.97574ad0.css",
-    "static/js/main.14fdfc95.js"
+    "static/css/main.87dcb9f9.css",
+    "static/js/main.2b7fc073.js"
   ]
 }
