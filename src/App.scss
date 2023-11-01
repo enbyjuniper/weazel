@@ -12,12 +12,11 @@ body {
   outline: 0px solid transparent;
 }
 .App {
-  margin-bottom: 32px;
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   button {
-    background-color: #fff4cf;
+    background-color: #fff;
     color: #231F20;
     cursor: pointer;
     font-size: 16px;
@@ -44,6 +43,8 @@ body {
   display: flex;
   flex-direction: column;
   max-height: 100vh;
+  position: sticky;
+  top: 0;
   .textarea {
     width: 100%; 
     flex-grow: 1;
@@ -53,7 +54,6 @@ body {
   }
   .downloadBar {
     display: flex;
-    flex-direction: column;
     margin: 16px auto;
     width: fit-content;
     gap: 8px;
@@ -79,28 +79,6 @@ body {
     margin-bottom: auto;
     display: flex;
     flex-direction: column;
-
-    .text {
-      columns: 3;
-      column-gap: 20px;
-      column-fill: auto;
-      text-align: justify;
-      font-size: 16px;
-      line-height: 22px;
-      overflow: hidden;
-      white-space: pre-line;
-      img {
-        cursor:move;
-        display: inline-block;
-        column-span: 2;
-      }
-      .date {
-        font-style: italic;
-        &::after {
-          content: ' - ';
-        }
-      }
-    }
   }
   footer {
     align-self: flex-end;

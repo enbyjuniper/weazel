@@ -6,9 +6,11 @@ import { Tooltip } from '../Tooltip';
 import { autoUpdate, useFloating } from '@floating-ui/react';
 import { mergeRefs } from '../../utils';
  
-type Props = ComponentProps<'div'> & {};
+type Props = ComponentProps<'div'> & {
+  date: string;
+};
   
-export const Header: FC<Props> = ({ className, ...props }) => {
+export const Header: FC<Props> = ({ className, date, ...props }) => {
   const [headerImage, setHeaderImage] = useState('main');
   const [showSlider, setShowDropdown] = useState(false);
 
@@ -18,11 +20,15 @@ export const Header: FC<Props> = ({ className, ...props }) => {
   const {refs, floatingStyles} = useFloating({
     whileElementsMounted: autoUpdate,
   });
+  
+  console.log(date);
+  
+  const d = new Date(date.replace(/-/g, '/')).toLocaleDateString("fr-Ca").replace(/-/g, '.');
 
   return (
     <header ref={mergeRefs([onClickOutsideRef, refs.setReference])} onClick={()=>setShowDropdown(true)} className={getClassName()}>
       <div className="c-header__top">
-        <span contentEditable>01.01.2023</span>
+        <span contentEditable>{d}</span>
         <span contentEditable>#123456</span>
       </div>
       <img className={classNames('c-header__logo', `-${headerImage}`)} src={require(`../../assets/header_${headerImage}.png`)} alt='logo' />

@@ -27,7 +27,7 @@ export const Title: FC<Props> = ({ className, ...props }) => {
     const value = e.target?.value || e.target?.innerText;
     setTitleSize(Number(value))
   }
-
+  
   return (
     <div ref={mergeRefs([onClickOutsideRef, refs.setReference])} className={getClassName()} {...props}>
       {!showTitle && 
